@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote fetch="http://code.ossystems.com.br" name="ossystems" review="code.ossystems.com.br"/>
+  <remote fetch="git://git.yoctoproject.org" name="yocto"/>
+  <remote fetch="git://github.com" name="github"/>
+  <remote fetch="git://git.openembedded.org" name="oe"/>
+
+  <default revision="invalidRevision" sync-j="4"/>
+
+  <!-- Open Embedded Layers -->
+  <project remote="oe" revision="1.42" name="bitbake" path="sources/bitbake" />
+  <project remote="oe" revision="warrior" name="openembedded-core" path="sources/openembedded-core" />
+  <project remote="oe" revision="warrior" name="meta-openembedded" path="sources/meta-openembedded"/>
+
+  <!-- O.S. Systems Yocto BSP Layers, confs and tools -->
+  <project remote="ossystems" revision="warrior" name="meta-ossystems-base" path="sources/meta-ossystems-base"/>
+  <project name="apps/ye" path="sources/ye" remote="ossystems" revision="master"/>
+  <project remote="ossystems"  revision="warrior" name="ossystems-yocto-base-scripts" path="sources/base">
+    <copyfile dest="setup-environment" src="setup-environment"/>
+  </project>
+
+  <!-- Qt5 Layer -->
+  <project remote="github" revision="warrior" name="meta-qt5/meta-qt5" path="sources/meta-qt5"/>
+
+  <!-- Raspberry Pi Layer -->
+  <project remote="yocto"  revision="master" name="meta-raspberrypi" path="sources/meta-raspberrypi"/>
+
+  <!-- UpdateHub Layers -->
+  <project remote="github" revision="warrior" name="updatehub/meta-updatehub" path="sources/meta-updatehub" />
+  <project remote="github" revision="warrior" name="UpdateHub/meta-updatehub-raspberrypi" path="sources/meta-updatehub-raspberrypi"/>
+
+  <!-- nymea Layers -->
+  <project remote="github" revision="master" name="ossystems/meta-nymea" path="sources/meta-nymea"/>
+  <project remote="github" revision="master" name="ossystems/nymea-embedded-platform" path="sources/platform"/>
+</manifest>
